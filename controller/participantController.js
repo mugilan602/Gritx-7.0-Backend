@@ -1,5 +1,5 @@
 const Participant = require('../model/Participant');
-const { sendMail } = require("../Services/mailService"); // Adjust the path to your mailService
+const { sendMail } = require("../Services/mailService");
 
 const register = async (req, res) => {
     try {
@@ -14,7 +14,6 @@ const register = async (req, res) => {
             phoneNumber
         } = req.body;
 
-        // Create a new participant instance
         const newParticipant = new Participant({
             name,
             secId,
@@ -26,10 +25,8 @@ const register = async (req, res) => {
             phoneNumber
         });
 
-        // Save the participant to the database
         await newParticipant.save();
 
-        // Send a registration confirmation email
         await sendMail(
             email,
             'Registration Confirmation',

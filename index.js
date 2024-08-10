@@ -8,8 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// MongoDB connection
-const dbURI = 'mongodb://localhost:27017/'; // Replace with your MongoDB URI
+const dbURI = 'mongodb://localhost:27017/';
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

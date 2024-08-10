@@ -1,4 +1,3 @@
-// services/mailService.js
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
@@ -11,7 +10,7 @@ const transporter = nodemailer.createTransport({
 
 const sendMail = async (to, subject, text) => {
     const mailOptions = {
-        from: 'mugilan7778@gmail.com', // Sender address
+        from: 'mugilan7778@gmail.com',
         to,
         subject,
         text
@@ -21,7 +20,7 @@ const sendMail = async (to, subject, text) => {
         await transporter.sendMail(mailOptions);
     } catch (error) {
         console.error('Error sending email:', error);
-        throw error; // Propagate error for handling in the calling function
+        throw error;
     }
 };
 
